@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Built files
+dist/
+build/
+*.tsbuildinfo
+
+# Coverage reports
+coverage/
+
+# dotenv environment variables file
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Tests results
+test-results.xml
+jest-junit.xml
+
+# Compiled binary addons
+*.node
+
+# local npm packages
+*.tgz
+
+# Yarn integrity file
+.yarn-integrity
+
+
