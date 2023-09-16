@@ -6,11 +6,13 @@ app.use(express.json());
 // Set up mongoose connection
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-const mongoDBConnectionUrI = process.env.DATABASE_URI;
+// const mongoDBConnectionUrI = process.env.DATABASE_URI;
+// console.log(process.env.DATABASE_URI)
 
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect(mongoDBConnectionUrI);
+  // await mongoose.connect(mongoDBConnectionUrI);
+  await mongoose.connect("mongodb+srv://sticklo:mwd4vWyFaDpUSyqw@cluster0.vs6lt.mongodb.net/person_api?retryWrites=true&w=majority");
 }
 
 const personRoutes = require('./server/routes/index');
