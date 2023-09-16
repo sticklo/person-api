@@ -6,21 +6,19 @@
  *       type: object
  *       required:
  *         - name
- *         - age
+ *       
  *         - _id
  *       properties:
  *         _id:
  *           type: string
  *           description: The auto-generated id of the person
- *         age:
- *           type: number
- *           description: The age of the person
+ *        
  *         name:
  *           type: string
  *           description: The name of the person
  *       example:
  *         _id: 507f1f77bcf86cd799439011
- *         age: 23
+ *         
  *         name: Alexander K. Dewdney
  *     Success:
  *       type: object
@@ -36,16 +34,14 @@
  *       type: object
  *       required:
  *         - name
- *         - age
+ *         
  *       properties:
- *         age:
- *           type: number
- *           description: The age of the person
+ *         
  *         name:
  *           type: string
  *           description: The name of the person
  *       example:
- *         age: 23
+ *         
  *         name: Alexander K. Dewdney
  *     Error:
  *       type: object
@@ -95,10 +91,10 @@ const Person = require('../models/index');
  */
 
 router.post('/', async (req, res) => {
-  const { age, name } = req.body;
+  const { name } = req.body;
 
   try {
-    const person = await Person.create({ name, age });
+    const person = await Person.create({ name });
     res.status(201).json(person);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -190,20 +186,20 @@ router.get('/:idOrName', async (req, res) => {
 
 router.patch('/:idOrName', async (req, res) => {
   const idOrName = req.params.idOrName;
-  const { age, name } = req.body;
+  const {  name } = req.body;
 
   try {
     let updatedPerson;
     if (mongoose.Types.ObjectId.isValid(idOrName)) {
       updatedPerson = await Person.findByIdAndUpdate(
         idOrName,
-        { age, name },
+        {  name },
         { new: true }
       );
     } else {
       updatedPerson = await Person.findOneAndUpdate(
         { name: idOrName },
-        { age, name },
+        {  name },
         { new: true }
       );
     }
