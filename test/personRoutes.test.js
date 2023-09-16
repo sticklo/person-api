@@ -8,7 +8,7 @@ describe('Person Routes', () => {
   beforeAll(async () => {
     const response = await request(app)
       .post('/api')
-      .send({ name: 'John Doe', age: 30 });
+      .send({ name: 'John Doe' });
 
     createdPersonId = response.body._id;
   });
@@ -16,7 +16,7 @@ describe('Person Routes', () => {
   it('should update a person by id or name', async () => {
     const response = await request(app)
       .patch(`/api/${createdPersonId}`)
-      .send({ name: 'John Doe Updated', age: 35 });
+      .send({ name: 'John Doe Updated'});
 
     expect(response.statusCode).toBe(200);
     expect(response.body.name).toBe('John Doe Updated');
