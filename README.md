@@ -77,6 +77,7 @@ Input data is validated in the schema. The API expects valid JSON payloads for P
 
 
 Documentation
+Documentation is setup with Swagger-UI
 
 visit http://localhost:3000/api-docs
 
